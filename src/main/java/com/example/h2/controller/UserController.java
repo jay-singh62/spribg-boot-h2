@@ -21,8 +21,8 @@ public class UserController {
     }
 
     @DeleteMapping()
-    ResponseEntity<User> deletUser(@RequestBody UserDeletRequest request) {
-        return service.deletUser(request);
+    ResponseEntity<User> deleteUser(@RequestBody UserDeleteRequest request) {
+        return service.deleteUser(request);
     }
 
     @PutMapping()

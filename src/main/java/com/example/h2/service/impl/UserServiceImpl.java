@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseEntity<User> deletUser(UserDeletRequest request) {
+    public ResponseEntity<User> deleteUser(UserDeleteRequest request) {
         String encryptedPas = PassBasedEnc.generateSecurePassword(request.getPassword(), salt);
         User userinfo = repo.findByEmailAndPassword(request.getEmail(), encryptedPas);
         if (userinfo != null) {

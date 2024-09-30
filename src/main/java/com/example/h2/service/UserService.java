@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface UserService  {
 ResponseEntity<User> createUser( UserCreateRequest request);
-ResponseEntity<User> deletUser(UserDeletRequest request );
+ResponseEntity<User> deleteUser(UserDeleteRequest request );
 ResponseEntity<User> updateUser(UserUpdateRequest request );
 LoginResponse  loginUser(LoginRequest request);
 }
