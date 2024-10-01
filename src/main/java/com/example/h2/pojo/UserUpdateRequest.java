@@ -9,8 +9,8 @@ import lombok.Setter;
 public class UserUpdateRequest {
     @NotBlank
     private String email;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private Integer age;
     @NotBlank
     private String password;

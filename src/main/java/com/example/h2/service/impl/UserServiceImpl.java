@@ -26,8 +26,8 @@ public class UserServiceImpl implements UserService {
         }
         User newUser = new User();
         newUser.setEmail(request.getEmail());
-        newUser.setFirstname(request.getFirstName());
-        newUser.setLastname(request.getLastName());
+        newUser.setFirstName(request.getFirstName());
+        newUser.setLastName(request.getLastName());
         newUser.setAge(request.getAge());
         String encryptedPas = PassBasedEnc.generateSecurePassword(request.getPassword(), salt);
         newUser.setPassword(encryptedPas);
@@ -52,11 +52,11 @@ public class UserServiceImpl implements UserService {
         String encryptedPas = PassBasedEnc.generateSecurePassword(request.getPassword(), salt);
         User userinfo = repo.findByEmailAndPassword(request.getEmail(), encryptedPas);
         if (userinfo != null) {
-            if (request.getLastname() != null) {
-                userinfo.setLastname(request.getLastname());
+            if (request.getLastName() != null) {
+                userinfo.setLastName(request.getLastName());
             }
-            if (request.getFirstname() != null) {
-                userinfo.setFirstname(request.getFirstname());
+            if (request.getFirstName() != null) {
+                userinfo.setFirstName(request.getFirstName());
             }
             if (request.getAge() != null) {
                 userinfo.setAge(request.getAge());
