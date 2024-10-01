@@ -26,13 +26,9 @@ public class UserServiceImpl implements UserService {
         }
         User newUser = new User();
         newUser.setEmail(request.getEmail());
-        newUser.setFirstname(request.getFirstname());
-        if (request.getLastname() != null) {
-            newUser.setLastname(request.getLastname());
-        }
-        if (request.getAge()!= null) {
-            newUser.setAge(request.getAge());
-        }
+        newUser.setFirstname(request.getFirstName());
+        newUser.setLastname(request.getLastName());
+        newUser.setAge(request.getAge());
         String encryptedPas = PassBasedEnc.generateSecurePassword(request.getPassword(), salt);
         newUser.setPassword(encryptedPas);
         return new ResponseEntity<>(repo.save(newUser), HttpStatus.OK);
@@ -46,8 +42,9 @@ public class UserServiceImpl implements UserService {
             repo.deleteById(request.getEmail());
             return new ResponseEntity<>(HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
+        else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override

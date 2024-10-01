@@ -1,18 +1,18 @@
 package com.example.h2.pojo;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class UserUpdateRequest {
-    @NotNull
+    @NotBlank
     private String email;
     private String firstname;
     private String lastname;
     private Integer age;
-    @NotNull
+    @NotBlank
     private String password;
     private String newPassword;
 }
