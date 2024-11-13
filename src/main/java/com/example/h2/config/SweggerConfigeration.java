@@ -1,4 +1,4 @@
-package com.example.h2;
+package com.example.h2.config;
 
 
 import org.springframework.context.annotation.Bean;
