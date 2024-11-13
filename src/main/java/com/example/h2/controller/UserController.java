@@ -15,6 +15,10 @@ public class UserController {
     @Autowired
     UserService service;
 
+    @GetMapping()
+    public  String test(){
+        return "hii bro";
+    }
     @PostMapping()
     public ResponseEntity<User> createUser(@Valid @RequestBody UserCreateRequest request) {
         return service.createUser(request);
@@ -29,10 +33,6 @@ public class UserController {
     ResponseEntity<User> updateUser(@RequestBody UserUpdateRequest request) {
         return service.updateUser(request);
     }
-
-    @PostMapping("/login")
-    public LoginResponse loginUser(@RequestBody LoginRequest request) {
-        return service.loginUser(request);
-    }
-
 }
+
+

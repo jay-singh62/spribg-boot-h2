@@ -2,7 +2,9 @@ package com.example.h2.service.impl;
 
 import com.example.h2.common.PassBasedEnc;
 import com.example.h2.model.User;
-import com.example.h2.pojo.*;
+import com.example.h2.pojo.UserCreateRequest;
+import com.example.h2.pojo.UserDeleteRequest;
+import com.example.h2.pojo.UserUpdateRequest;
 import com.example.h2.repo.UserRepo;
 import com.example.h2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +43,7 @@ public class UserServiceImpl implements UserService {
         if (userinfo != null) {
             repo.deleteById(request.getEmail());
             return new ResponseEntity<>(HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
@@ -68,19 +69,14 @@ public class UserServiceImpl implements UserService {
             return new ResponseEntity<>(repo.save(userinfo), HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
     }
 
-    @Override
-    public LoginResponse loginUser(LoginRequest request) {
-        LoginResponse response = new LoginResponse();
-        String encryptedPas = PassBasedEnc.generateSecurePassword(request.getPassword(), salt);
-        User userinfo = repo.findByEmailAndPassword(request.getEmail(), encryptedPas);
-        if (userinfo != null) {
-            response.setStatus(true);
-        } else {
-            response.setStatus(false);
-        }
-        return response;
-    }
 }
+
+
+
+
+
+
 
